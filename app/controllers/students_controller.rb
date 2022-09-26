@@ -5,10 +5,10 @@ class StudentsController < ApplicationController
     end
 
     def grades
-        grades_data = Student.all.order(grade: :desc).map do |student|
+        grades = Student.all.order(grade: :desc).map do |student|
           { first_name: student.first_name ,last_name: student.last_name, grade: student.grade }
         end
-        render json: grades_data
+        render json: grades
     end
     
     def highest_grade
